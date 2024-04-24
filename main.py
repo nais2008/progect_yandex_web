@@ -8,7 +8,9 @@ from data.users import User
 from data.product import Product
 from data.feedbacks import Feedback
 from data.cart import Cart
+from flask_restful import Api
 import datetime as dt
+import data.users_resources as users_resources
 
 """ Задачи:
 1. Реализовать загрузку файлов
@@ -27,12 +29,13 @@ UPLOAD_FOLDER = '/static/img/product_img'
 ALLOWED_EXTENSIONS = {'svg', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
+api = Api(app)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 app.config['PERMANENT_SESSION_LIFETIME'] = dt.timedelta(
     days=15
 )
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024     # 16 МБ
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -515,6 +518,7 @@ def registr():
     )
 
 
+# страница ошибки 404
 @app.errorhandler(404)
 def not_found(error):
     return render_template('error.html',
@@ -524,6 +528,7 @@ def not_found(error):
                            css=url_for("static", filename="css/error.css")), 404
 
 
+# страница ошибки 401
 @app.errorhandler(401)
 def not_found(error):
     return render_template('error.html',
@@ -542,4 +547,6 @@ def bad_request(_):
 if __name__ == '__main__':
     db_session.global_init("db/gs.db")
     app.register_blueprint(feedbacks_api.blueprint)
+    api.add_resource(users_resources.UsersListResource, '/api/users')
+    api.add_resource(users_resources.UserResource, '/api/users/<int:user_id>')
     app.run(port=8080, host='127.0.0.1', debug=True)

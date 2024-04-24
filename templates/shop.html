@@ -62,16 +62,12 @@
           {% endfor %}
         </section>
       </div>
-      {% if current_user.is_authenticated %}
-      {% else %}
-        <br>
-      {% endif %}
       <!-- Добавление товара для авторизованных пользователей-->
       <section class="add-product">
         {% if current_user.is_authenticated %}
           <button class="btn btn_add-product btn-open">Добавить товар</button>
         {% else %}
-          <div></div>
+          <br>
         {% endif %}
         <div class="modal add-product__modal hidden">
             <div class="flex">

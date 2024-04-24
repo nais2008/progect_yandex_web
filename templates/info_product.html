@@ -24,7 +24,11 @@
                         <a href="/shop" class="btn btn_go-shop">На страницу с товарами</a>
                     {% else %}
                         <a href="/shop" class="btn btn_go-shop">На страницу с товарами</a>
-                        <a href="/add-cart/{{ product.id }}" class="btn btn_cart">Добавить в корзину</a>
+                        {% if current_user.is_authenticated %}
+                            <a href="/info_product/{{ item.id }}" class="btn btn_info">Больше информации</a>
+                        {% else %}
+                            <div></div>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>

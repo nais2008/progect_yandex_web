@@ -32,11 +32,7 @@
             <div class="item{{item.id}} item">
               <h3>От кого: {{ item.user.full_name }} </h3>
               <p>
-                {% if item.text | length > 15 %}
-                  {{ item.text[:15] }}...
-                {% else %}
-                  {{ item.text }}
-                {% endif %}
+                {{ item.text }}
               </p>
             </div>
           {% else %}

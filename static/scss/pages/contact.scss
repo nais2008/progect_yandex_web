@@ -1,0 +1,148 @@
+@import "../moduls/header.scss";
+
+header nav ul li:nth-child(3) a{
+    border-bottom: 2px solid rgba(0, 0, 0, .5)
+}
+
+main{
+    .leave-feedback{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+
+        article h1{
+            text-align: center;
+            @include font(
+                28px,
+                extrabold,
+                auto,
+                var(--white)
+            )
+        }
+        .container form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+
+            div{
+                display: flex;
+                flex-direction: column;
+                gap:10px;
+                
+                label{
+                    @include font(
+                        20px,
+                        medium,
+                        auto,
+                        var(--white)
+                    )
+                }
+                textarea{
+                    width: 100%;
+                    @include btn(
+                        transparent,
+                        var(--yellow),
+                        10px 15px,
+                        3px solid var(--yellow),
+                        15px,
+                        20px
+                    );
+                    outline: none;
+                    cursor: text;
+                    transition: all .2s;
+
+                    &::placeholder{
+                        color:var(--yellow)
+                    }
+                    &:focus{
+                        background-color: var(--yellow);
+                        color: #000;
+                    }
+                    &:hover{
+                        box-shadow: none;
+                    }
+                    &::-webkit-scrollbar-track{
+                        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                        background-color: var(--yellow);
+                        border-radius: 10px;
+                    }
+                    &::-webkit-scrollbar{
+                        width: 10px;
+                        background-color: var(--yellow);
+                    }
+                }
+                button{
+                    transition: all .2s;
+                    padding: 10px 15px;
+                    font-size:20px;
+                    border-radius: 15px;
+
+                    @media (hover:hover) {
+                        &:hover{
+                            background-color: var(--yellow);
+                            color:#000;
+                        }
+                    }
+                    @media (hover:none) {
+                        &:active{
+                            background-color: var(--yellow);
+                            color:#000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .feedbacks{
+        .container .feedbacks__wraper{
+            article{
+                margin-bottom: 20px;
+
+                h1{
+                    text-align: center;
+                    @include font(
+                        28px,
+                        extrabold,
+                        auto,
+                        var(--white)
+                    );
+                }
+            }
+            .feedbacks__items{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap:10px;
+
+                .item{
+                    background-color: color-mix(in srgb, var(--light-blue), var(--dark-blue));
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap:10px;
+                    border-radius: 15px;
+                    overflow: hidden;
+
+                    h3{
+                        @include font(
+                            calc(var(--index) * 1),
+                            extrabold,
+                            auto,
+                            var(--white)
+                        );
+                    }
+                    p{
+                        @include font(
+                            calc(var(--index) * .6),
+                            extrabold,
+                            auto,
+                            var(--grey)
+                        );
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import "../moduls/footer.scss";

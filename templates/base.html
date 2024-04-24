@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- css-->
+    <link rel="stylesheet" href="{{ css }}">
+    <!-- favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='img/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='img/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!--  swiper.js  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <!-- Chatra {literal} -->
+    <script defer>
+        (function(d, w, c) {
+            w.ChatraID = 'HkjoreZ7TDjDoHKoE';
+            var s = d.createElement('script');
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
+    <!-- /Chatra {/literal} -->
+  </head>
+  <body>
+    <div class="wraper">
+      <!-- header-->
+      <header> 
+        <!-- Логотип-->
+        <a class="header__logo" href="/">
+          <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo">
+          <h2>Guitar House</h2>
+        </a>
+        <!-- Навигация-->
+        <nav class="header__navigation"> 
+          <ul> 
+            <li><a href="/"> Главная</a></li>
+            <li><a href="/shop"> Товар</a></li>
+            <li><a href="/contact"> Оставить отзыв</a></li>
+          </ul>
+        </nav>
+        <!-- Тут корзина и кнопки-->
+        <section class="header__blocks"> 
+          <!-- блок корзины--><a class="header__cart cart" href="/cart"> 
+            <div class="cart__icon"> <img src="{{ url_for('static', filename='img/cart.svg') }}" alt="cart-icon"></div>
+            <h3 class="cart__sum">{{ sum_price }}₽</h3></a>
+          {% if current_user.is_authenticated %}
+            <!-- кнопка входа в личный кабинет-->
+            <div class="header__btn-acc btn-acc">
+              <form action="/account">
+                <button class="btn btn_acc">
+                  <!-- Здесь будет либо иконка аккаунта, либо никнейм-->
+                  {{ current_user.full_name }}
+                </button>
+              </form>
+            </div>
+          {% else %}
+          <!-- кнопки входа и регистрации -->
+            <div class="header__btn-auto-reg btn-auto-reg">
+              <form action="/login">
+                <button class="btn btn_auto">Авторизоваться</button>
+              </form>
+              <form action="/registr">
+                <button class="btn btn_reg">Зарегистрироваться </button>
+              </form>
+            </div>
+          {% endif %}
+        </section>
+      </header>
+
+      {% block content %}{% endblock %}
+
+      <!-- footer-->
+      <footer>
+        <div class="container">
+          <div class="footer__wraper"> 
+            <!-- текст-->
+            <section class="footer__text"> 
+              <h3 class="text__number">8 (800) 555-35-35</h3>
+              <h3 class="text__email">gh@mail.ru</h3>
+              <h3 class="text__right">&copy; 2024 This Website. All rights reserves.</h3>
+            </section>
+            <nav class="footer__navigation"> 
+              <!-- навигация по страницам-->
+              <ul class="footer__sites">
+                <li> <a href="/">Главная</a></li>
+                <li> <a href="/shop">Товар</a></li>
+                <li> <a href="/contact">Оставить отзыв</a></li>
+              </ul>
+              <!-- тг разработчиков-->
+              <div class="footer__tg">
+                <a href="https://t.me/MamaKupiSnikers" target="_blank">
+                  <img src="{{ url_for('static', filename='img/tg.svg') }}" alt="tg">
+                </a>
+                <a href="https://vk.com/mama_kupi_snikers" target="_blank">
+                  <img src="{{ url_for('static', filename='img/vk.png') }}" alt="vk">
+                </a>
+                <a href="https://github.com/nais2008" target="_blank">
+                  <img src="{{ url_for('static', filename='img/github.png') }}" alt="gh">
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- js-->
+    <noscript>
+      Включите в настройках JavaScript (JS), иначе сайт не будет нормально работать.
+    </noscript>
+    <script src="{{ js }}"> </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+extends ../layouts/layout-form.pug
+
+block content 
+    // main
+    main 
+        section.window 
+            h1 Регистрация
+            form(action="login.html", method="post")
+                div 
+                    label(for="email") Введите email:
+                    input#email(type="email", name="email", required) 
+                div 
+                    label(for="text") Введите ФИО:
+                    input#text(type="text", name="text", required) 
+                div 
+                    label(for="age") Введите возраст:
+                    input#age(type="number", name="age", required) 
+                div 
+                    label(for="birthday") Введите ДР:
+                    input#birthday(type="date", name="birthday", required) 
+                div 
+                    label(for="pas") Введите пароль:
+                    input#pas(type="password", name="pas", minlength="8", required)
+                div 
+                    label(for="pas-rep") Повторите пароль:
+                    input#pas-rep(type="password", name="pas-rep", minlength="8", required)
+                div 
+                    a.go-login(href="/login") У вас уже существует аккаунт?
+                    button.btn.btn_log(type="submit") Зарегистрироваться  
+                    a.btn.btn_go-index(href="/") На главную 

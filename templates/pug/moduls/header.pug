@@ -1,0 +1,34 @@
+header 
+    // Логотип
+    a(href="/").header__logo 
+        img(src="../../static/img/logo.svg", alt="logo")
+        h2 Guitar House
+    // Навигация
+    nav.header__navigation 
+        ul 
+            each text, href in {"/": "Главная", "/shop": "Товар", "/contact": "Оставить отзыв"}
+                li
+                    a(href=href) 
+                        | #{ text }
+    // Тут корзина и кнопки
+    section.header__blocks 
+        // блок корзины
+        a(href="/cart").header__cart.cart 
+            .cart__icon 
+                img(src="../../static/img/cart.svg", alt="cart-icon")
+            h3.cart__sum 9875р.
+        // Тут блоки для входа/регистрации либо входа в лк(личный кабинет)
+        // кнопки входа и регистрации 
+        .header__btn-auto-reg.btn-auto-reg
+            // кнопка входа
+            form(action="/login")  
+                button.btn.btn_auto Авторизоваться
+            // кнопка регистрации
+            form(action="/registr") 
+                button.btn.btn_reg Зарегистрироваться 
+        // кнопка входа в личный кабинет
+        .header__btn-acc.btn-acc
+            form(action="/account") 
+                button.btn.btn_acc
+                    // Здесь будет либо иконка аккаунта, либо никнейм
+                    | test

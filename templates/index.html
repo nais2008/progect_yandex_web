@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+  <!-- main-->
+  <main>
+    <div class="container">
+      <div class="main__wraper">
+        <!-- Основной текст-->
+        <article class="text">
+          <h1 class="text__article">
+             Твоя новая гитара
+            с доставкой на дом
+          </h1>
+          <p class="text__p">
+             Онлайн-магазин гитар и гитарных
+            принадлежностей - лучшее решение,
+            если лень выходить из дома
+          </p>
+          <form action="/shop">
+            <button class="btn__text btn">
+               Посмотреть товар</button>
+          </form>
+        </article>
+        <!-- Основные картинки-->
+        <section class="images">
+          <div class="layer layer1"> <img src="../../static/img/giutar1.png" alt=""></div>
+          <div class="layer layer2"><img src="../../static/img/giutar2.png" alt=""></div>
+          <div class="layer layer3">
+            <div class="glow glow1"> </div>
+            <div class="glow glow2"> </div>
+          </div>
+          <div class="layer layer4">
+            <div class="circle"> </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+{% endblock %}

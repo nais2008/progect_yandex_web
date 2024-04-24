@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- main-->
+<main>
+  {% if current_user.is_authenticated %}
+  {% else %}
+    {{ redirect('/') }}
+  {% endif %}
+  <!-- секция аккаунта -->
+  <div class="account">
+    <!-- иконка аккаунта и кнопки-->
+    <section class="left account__left"> <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" alt="">
+      <div class="left__buttons buttons">
+        <button class="btn btn_redact" onclick="closeRedactAcc()">Редактировать</button>
+        <a href="/logout" class="btn btn_logout">Выйти</a>
+      </div>
+    </section>
+    <!-- форма с информацией оь аккаунте-->
+    <form action="/account" method="POST" class="right account__right" id="form-redact-acc">
+      {{ form.hidden_tag() }}
+      <div class="item item_fio">
+        <p> <span>ФИО : </span>{{ info.full_name }} </p>
+      </div>
+      <div class="item item_age">
+        <p> <span>Возраст : </span>{{ info.age }} </p>
+      </div>
+      <div class="item item_birthday">
+        <p> <span>ДР : </span> {{ info.birthday.strftime("%d.%m.%Y") }} </p>
+      </div>
+      <div class="item item_email">
+        <p> <span>Email : </span>{{ info.email }} </p>
+      </div>
+    </form>
+  </div>
+  <!-- объявление созданные этим аккаунтом-->
+  <div class="your-product">
+    <article>
+      <h1>Ваши объявления</h1>
+    </article>
+    <div class="container">
+      {% if products %}
+        <swiper-container class="mySwiper" pagination="true" pagination-dynamic-bullets="true"
+                          slides-per-view="3" space-between="30" navigation="true">
+            {% for item in products %}
+              <swiper-slide>
+                {% if item.content | length > 15 %}
+                  <div class="item{{loop.index}} item"><img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+                    <div class="text">
+                      <h3>{{item.title}}</h3>
+                      <p>{{item.content[:15]}}...</p>
+                      <a href="/redact_product/{{item.id}}" class="btn btn_item">Редактировать</a>
+                      <a href="/del_product/{{item.id}}" class="btn btn_item">Удалить</a>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="item{{loop.index}} item"><img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+                    <div class="text">
+                      <h3>{{item.title}}</h3>
+                      <p>{{item.content}}</p>
+                      <a href="/redact_product/{{item.id}}" class="btn btn_item">Редактировать</a>
+                      <a href="/del_product/{{item.id}}" class="btn btn_item">Удалить</a>
+                    </div>
+                  </div>
+                {% endif %}
+              </swiper-slide>
+            {% endfor %}
+        </swiper-container>
+      {% else %}
+        <h1 class="no-product">У вас нет товаров</h1>
+      {% endif %}
+      {% if current_user.is_authenticated %}
+        <button class="btn btn-open"> Удалить аккаунт</button>
+        <div class="modal add-product__modal hidden">
+          <div class="flex">
+            <button class="btn-close">⨉</button>
+          </div>
+          <div class="wraper">
+            <div>
+              <h1>Вы уверены что хотите удалить аккаунт?</h1>
+            </div>
+            <div class="block-btn">
+              <a href="/del-account/{{ current_user.id }}" class="btn">Да</a>
+              <button class="btn-close">Нет</button>
+            </div>
+          </div>
+        </div>
+        <div class="overlay hidden"></div>
+      {% endif %}
+    </div>
+  </div>
+  <script defer>
+    // личный кабинет
+    const itemFio = document.querySelector(".item_fio");
+    const itemAge = document.querySelector(".item_age");
+    const itemBirthday = document.querySelector(".item_birthday");
+    const itemEmail = document.querySelector(".item_email");
+
+    // при нажатии на кнопку редакта, вместо информации выведутся поля
+    function redactAcc(){
+      let buttonBlock = document.querySelector(".buttons");
+
+      buttonBlock.innerHTML = `
+          {{ form.submit(type="submit", class="btn btn_save", form="form-redact-acc") }}
+          <button class="btn btn_nosave" onclick="closeRedactAcc()">Отмена</button>
+      `;
+      itemFio.innerHTML = `{{ form.full_name(type="text", id="full_name", placeholder="Введите новое ФИО: ") }}`;
+      itemAge.innerHTML = `{{ form.age(type="number", id="age", placeholder="Введите новый возраст:", min="0") }}`;
+      itemBirthday.innerHTML = `{{ form.birthday(type="date", id="date", min="1900-01-01") }}`;
+      itemEmail.innerHTML = `{{ form.email(type="email", id="email", placeholder="Введите новый email:") }}`;
+  }
+
+
+  // при нажатии на кнопку отмены, вместо полей для изменения информации, выведется информация
+  function closeRedactAcc(){
+    let buttonBlock = document.querySelector(".buttons");
+
+    buttonBlock.innerHTML = `
+        <button class="btn btn_redact" onclick="redactAcc()">Редактировать</button>
+        <a href="/logout" class="btn btn_logout">Выйти</a>
+    `;
+    itemFio.innerHTML = `<p> <span>ФИО : </span>{{ info.full_name }} </p>`;
+    itemAge.innerHTML = `<p> <span>Возраст : </span>{{ info.age }} </p>`;
+    itemBirthday.innerHTML = `<p> <span>ДР : </span>{{ info.birthday.strftime("%d.%m.%Y") }} </p>`;
+    itemEmail.innerHTML = `<p> <span>Email : </span>{{ info.email }} </p>`;
+  }
+  </script>
+</main>
+ {% endblock %}

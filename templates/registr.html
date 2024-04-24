@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- css-->
+    <link rel="stylesheet" href="{{ css }}">
+    <!-- favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../static/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <div class="wraper">
+      <!-- main-->
+      <main>
+          {% if message %}
+            <h1 class="message-error">
+              {{ message }}
+            </h1>
+          {% endif %}
+        <section class="window"> 
+          <h1>Регистрация</h1>
+          <form action="/registr" method="post">
+            {{ form.hidden_tag() }}
+            <div>
+              {{ form.email.label }}
+              {{ form.email(id="email", type="email", ) }}
+            </div>
+            <div>
+              {{ form.full_name.label }}
+              {{ form.full_name(id="text", type="text", required="true") }}
+            </div>
+            <div>
+              {{ form.age.label }}
+              {{ form.age(id="age", type="number", required="true") }}
+            </div>
+            <div>
+              {{ form.birthday.label }}
+              {{ form.birthday(id="birthday", type="date", required="true") }}
+            </div>
+            <div>
+              {{ form.password.label }}
+              {{ form.password(id="pas", type="password", minlength="8", required="true") }}
+            </div>
+            <div>
+              {{ form.password_again.label }}
+              {{ form.password_again(id="pas-ag", type="password", minlength="8", required="true") }}
+            </div>
+            <div>
+              <a class="go-login" href="/login">У вас уже существует аккаунт?</a>
+              {{ form.submit(class="btn btn_log", type="submit") }}
+              <a class="btn btn_go-index" href="/">На главную </a>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+    <!-- js-->
+    <script src="{{ js }}"> </script>
+  </body>
+</html>

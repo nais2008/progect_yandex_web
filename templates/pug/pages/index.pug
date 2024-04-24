@@ -1,0 +1,35 @@
+extends ../layouts/base.pug
+
+block css 
+    link(rel="stylesheet", href="../../static/css/style.css")
+
+block content
+    // {{ extends "base.html" }}
+    // {% block content %}{% endblock %}
+    // main
+    main
+        .container
+            .main__wraper
+                // Основной текст
+                article.text 
+                    h1.text__article 
+                        |Твоя новая гитара 
+                        |с доставкой на дом
+                    p.text__p 
+                        |Онлайн-магазин гитар и гитарных 
+                        |принадлежностей - лучшее решение, 
+                        |если лень выходить из дома
+                    form(action="/shop")
+                        button.btn__text.btn 
+                            | Посмотреть товар
+                // Основные картинки
+                section.images 
+                    .layer.layer1 
+                        img(src="../../static/img/giutar1.png", alt="")
+                    .layer.layer2
+                        img(src="../../static/img/giutar2.png", alt="") 
+                    .layer.layer3
+                        .glow.glow1 
+                        .glow.glow2 
+                    .layer.layer4
+                        .circle 

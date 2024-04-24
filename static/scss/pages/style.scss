@@ -1,0 +1,125 @@
+@import "../moduls/header.scss";
+
+header nav ul li:first-child a{
+    border-bottom: 2px solid rgba(0, 0, 0, .5)
+}
+
+@import "../moduls/footer.scss";
+
+@mixin glow($width, $height){
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse farthest-corner at 50% 50%, 
+        rgba(255, 255, 255, .6) 10%, 
+        rgba(255, 255, 255, 0.5) 20%, 
+        rgba(255, 255, 255, 0) 60%
+    );
+}
+/* main */
+main{
+    .container .main__wraper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        .text{
+            display: flex;
+            flex-direction: column;
+            gap:45px;
+            width: 535px;
+
+            h1{
+                @include font(
+                    48px,
+                    extrabold,
+                    auto, 
+                    var(--white)
+                );
+            }
+            p{
+                @include font(
+                    24px,
+                    medium,
+                    auto,
+                    var(--white)
+                );
+            }
+            button{
+                font-size: 24px;
+                transition: all .2s;
+
+                @media (hover:hover) {
+                    &:hover{
+                        border: 3px solid transparent;
+                        background-color: var(--yellow);
+                        color: #000;
+                    }
+                }
+                @media (hover:none) {
+                    &:active{
+                        border: 3px solid transparent;
+                        background-color: var(--yellow);
+                        color: #000;
+                    }
+                }
+            }
+        }
+        .images{
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+
+            .layer1{
+                width: 190px;
+                position: relative;
+                z-index: 4;
+            }
+            .layer2{
+                z-index: 3;
+                width: 0;
+            }
+            .layer3{
+                z-index: 2;
+
+                .glow1{
+                    @include glow(
+                        404px,
+                        404px
+                    );
+                    transform: translate(
+                        -200px,
+                        200px
+                    )
+                }
+                .glow2{
+                    @include glow(
+                        228px,
+                        228px
+                    );
+                    transform: translate(
+                        50px,
+                        -20px
+                    );
+                }
+            }
+            .layer4{
+                z-index: 1;
+
+                .circle{
+                    width: 420px;
+                    height: 420px;
+                    border-radius: 50%;
+                    border: 40px solid var(--yellow);
+                    margin-left: -400px;
+                    transform: translate(
+                        -100px,
+                        -100px
+                    );
+                }
+            }
+        }
+    }
+}

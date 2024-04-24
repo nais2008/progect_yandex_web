@@ -1,0 +1,79 @@
+/* footer */
+footer{
+    background-color: var(--dark-blue);
+    height: 300px;
+
+    .container{
+        height: 100%;
+        margin-bottom: 0;
+
+        .footer__wraper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+
+            .footer__text{
+                display: flex;
+                flex-direction: column;
+                gap:25px;
+
+                h3{
+                    @include font(
+                        18px,
+                        bold,
+                        auto,
+                        var(--white)
+                    );
+                    width: 280px;
+                }
+            }
+            .footer__navigation{
+                display: flex;
+                gap:100px;
+
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    gap:20px;
+
+                    li a{
+                        @include font(
+                            20px,
+                            bold,
+                            auto,
+                            var(--grey)
+                        );
+                        transition: all .2s;
+
+                        &:hover{
+                            color:var(--white);
+                        }
+                    }
+                }
+                .footer__tg{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    a{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        background: var(--light-blue);
+                        transition: all .2s;
+
+                        @media (hover:hover) {
+                            &:hover{
+                                background: color-mix(in srgb, var(--light-blue), var(--dark-blue));
+                            }   
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

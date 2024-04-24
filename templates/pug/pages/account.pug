@@ -1,0 +1,83 @@
+extends ../layouts/base.pug
+
+block css 
+    link(rel="stylesheet", href="../../static/css/account.css")
+
+block content
+    // {{ extends "base.html" }}
+    // {% block content %}{% endblock %}
+    // main
+    main
+        // секция аккаунта 
+        .account 
+            // иконка аккаунта и кнопки
+            section.left.account__left 
+                img(src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png", alt="")
+                .left__buttons.buttons
+                    button.btn.btn_redact Редактировать
+                    button.btn.btn_save Сохранить
+                    button.btn.btn_nosave Отмена
+                    button.btn.btn_logout Выйти
+            // форма с информацией оь аккаунте
+            form.right.account__right 
+                .item.item_fio 
+                    p 
+                        span ФИО : 
+                        | FIO 
+                    input#fio(type="text", name="fio", placeholder="Ведите новое ФИО:")
+                .item.item_age 
+                    p 
+                        span Возраст : 
+                        | AGE 
+                    input#age(type="number", name="age", placeholder="Введите новый возраст:")
+                .item.item_birthday 
+                    p 
+                        span ДР : 
+                        | BIRTHDAY 
+                    input#birthday(type="date", name="birthday", placeholder="Введите новую дату рождения:", min="0")
+                .item.item_email
+                    p 
+                        span Email : 
+                        | EMAIL 
+                    input#email(type="email", name="email", placeholder="Введите новый email:")
+        // объявление созданные этим аккаунтом
+        .your-product
+            article
+                h1 Ваши объявления
+            .container
+                section.product
+                    .item1.item.item_gor
+                        img(src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg", alt="")
+                        .text
+                            h3 NAME
+                            p description
+                            button.btn.btn_item model
+                            button.btn.btn_item del
+                    .item2.item
+                        img(src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg", alt="")
+                        .text
+                            h3 NAME
+                            p description
+                            button.btn.btn_item model
+                            button.btn.btn_item del
+                    .item3.item
+                        img(src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg", alt="")
+                        .text
+                            h3 NAME
+                            p description
+                            button.btn.btn_item model
+                            button.btn.btn_item del
+                    .item4.item
+                        img(src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg", alt="")
+                        .text
+                            h3 NAME
+                            p description
+                            button.btn.btn_item model
+                            button.btn.btn_item del
+                    .item5.item
+                        img(src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg", alt="")
+                        .text
+                            h3 NAME
+                            p description
+                            button.btn.btn_item model
+                            button.btn.btn_item del

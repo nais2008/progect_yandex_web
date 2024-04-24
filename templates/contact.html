@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- main-->
+<main>
+  <section class="leave-feedback">
+    <article>
+      <h1>Оставить отзыв</h1>
+    </article>
+    <div class="container">
+      <form action="/contact" method="post">
+        {{ form.hidden_tag() }}
+        <div>
+          {{ form.text.label }}
+          {{ form.text(cols="50", rows="10") }}
+        </div>
+        <div>
+          {% if current_user.is_authenticated %}
+            {{ form.submit(type="submit", class="btn btn_feedback") }}
+          {% endif %}
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="feedbacks">
+    <div class="container">
+      <div class="feedbacks__wraper">
+        <article>
+          <h1>Отзывы от других пользователей</h1>
+        </article>
+        <div class="feedbacks__items">
+          {% for item in feedback %}
+            <div class="item{{item.id}} item">
+              <h3>От кого: {{ item.user.full_name }} </h3>
+              <p>
+                {% if item.text | length > 15 %}
+                  {{ item.text[:15] }}...
+                {% else %}
+                  {{ item.text }}
+                {% endif %}
+              </p>
+            </div>
+          {% else %}
+            <h1 class="no-feedback">Отзывов пока что нет</h1>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

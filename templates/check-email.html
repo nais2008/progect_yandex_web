@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- css-->
+    <link rel="stylesheet" href="{{ css }}">
+    <!-- favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../static/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <div class="wraper">
+      <!-- main-->
+      <main>
+        {% if message %}
+          <h1 class="message-error">
+            {{ message }}
+          </h1>
+        {% endif %}
+        <section class="window">
+          <h1>Проверка</h1>
+          <form action="/check-email" method="post">
+            {{ form.hidden_tag() }}
+            <div>
+              {{ form.email.label }}
+              {{ form.email(id="email", type="email", required="true") }}
+            </div>
+            <div>
+              {{ form.submit(type="submit", class="btn btn_log") }}
+              <a class="btn btn_go-index" href="/">На главную </a>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+    <!-- js-->
+    <script src="{{ js }}s"> </script>
+  </body>
+</html>

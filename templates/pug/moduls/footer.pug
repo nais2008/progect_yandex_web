@@ -1,0 +1,20 @@
+footer
+    .container
+        .footer__wraper 
+            // текст
+            section.footer__text 
+                h3.text__number 8 (800) 555-35-35
+                h3.text__email gh@mail.ru
+                h3.text__right &copy; 2024 This Website. All rights reserves.
+            nav.footer__navigation 
+                // навигация по страницам
+                ul.footer__sites
+                    each text, href in {"/": "Главная", "/shop": "Товар", "/contact": "Контакты"}
+                        li 
+                            a(href=href) #{text}
+                // тг разработчиков
+                .footer__tg 
+                    a(href="")
+                        img(src="../../static/img/tg.svg", alt="tg")  
+                    a(href="")
+                        img(src="../../static/img/tg.svg", alt="tg")  

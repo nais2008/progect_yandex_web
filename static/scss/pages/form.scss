@@ -1,0 +1,141 @@
+@import "../moduls/standart.scss";
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .window{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:10px;
+        background-color: color-mix(in srgb, var(--light-blue), var(--dark-blue));
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 3px var(--dark-blue);
+
+        h1{
+            @include font(
+                28px,
+                extrabold,
+                auto,
+                var(--white)
+            );
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+
+            div{
+                label{
+                    @include font(
+                        20px,
+                        medium,
+                        auto,
+                        var(--white)
+                    );
+                }
+                input{
+                    width: 100%;
+                    @include btn(
+                        transparent,
+                        var(--yellow),
+                        10px 15px,
+                        3px solid var(--yellow),
+                        15px,
+                        20px
+                    );
+                    outline: none;
+                    cursor: text;
+                    transition: all .2s;
+        
+                    &::placeholder{
+                        color:var(--yellow)
+                    }
+                    &:focus{
+                        background-color: var(--yellow);
+                        color: #000;
+                    }
+                    &:hover{
+                        box-shadow: none;
+                    }
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        display: none;
+                    }
+                    &::-webkit-calendar-picker-indicator{
+                        background-color: var(--yellow);
+                        padding: 5px;
+                        cursor: pointer;
+                        border-radius: 3px;
+                    }
+                }
+                .btn_log{
+                    margin-top: 20px;
+                    font-size: 20px;
+                    width: 100%;
+                    padding: 10px 15px;
+                    transition: all .2s;
+
+                    @media (hover:hover) {
+                        &:hover{
+                            background-color: var(--yellow);
+                            color:#000;
+                        }
+                    }
+                    @media (hover:none) {
+                        &:active{
+                            background-color: var(--yellow);
+                            color:#000;
+                        }
+                    }
+                }
+            }
+            div:last-child{
+                display: flex;
+                flex-direction: column;
+
+                .btn_go-index{
+                    margin-top: 20px;
+                    font-size: 20px;
+                    width: 100%;
+                    padding: 10px 15px;
+                    transition: all .2s;
+                    text-align: center;
+
+                    @media (hover:hover) {
+                        &:hover{
+                            background-color: var(--yellow);
+                            color:#000;
+                        }
+                    }
+                    @media (hover:none) {
+                        &:active{
+                            background-color: var(--yellow);
+                            color:#000;
+                        }
+                    }
+                }
+                .go-login,
+                .go-registr{
+                    color: var(--grey);
+                    align-self: flex-start;
+                    border-bottom: 1px solid transparent;
+
+                    @media (hover:hover) {
+                        &:hover{
+                            border-bottom: 1px solid var(--grey);
+                        }
+                    }
+                    @media (hover:none) {
+                        &:active{
+                            border-bottom: 1px solid var(--grey);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

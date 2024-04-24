@@ -1,0 +1,28 @@
+ {% extends "base.html" %}
+ {% block content %}
+<!-- main-->
+<main>
+  <div class="container">
+    <div class="main__wraper">
+      <article>
+        <h1>Корзина</h1>
+      </article>
+      <section class="cart">
+        {% for item in cart_items %}
+          <div class="item1 item">
+            <img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+            <div class="text">
+              <h3>{{ item.product.title }}</h3>
+              <p>{{ item.product.content }}</p>
+              <a href="/del-cart-item/{{item.id}}" class="btn btn_item">Удалить из корзины</a>
+              <a href="/info_product/{{ item.product.id }}" class="btn btn_info">Больше информации</a>
+            </div>
+          </div>
+        {% else %}
+          <h1 class="no-product">Ваша корзина пуста</h1>
+        {% endfor %}
+      </section>
+    </div>
+  </div>
+</main>
+{% endblock %}

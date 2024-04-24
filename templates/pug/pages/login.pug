@@ -1,0 +1,18 @@
+extends ../layouts/layout-form.pug
+
+block content 
+    // main
+    main 
+        section.window 
+            h1 Вход
+            form(action="login.html", method="post")
+                div 
+                    label(for="email") Введите email:
+                    input#email(type="email", name="email", required) 
+                div 
+                    label(for="pas") Введите пароль:
+                    input#pas(type="password", name="pas", minlength="8", required)
+                div 
+                    a.go-registr(href="/login") У вас нет аккаунт?
+                    button.btn.btn_log(type="submit") Авторизоваться 
+                    a.btn.btn_go-index(href="/") На главную 

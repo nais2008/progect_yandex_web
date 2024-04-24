@@ -1,0 +1,264 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+/* стартовые настроки */
+:root {
+  --index: calc(1vh + 1vw);
+  --yellow: #FFF0BB;
+  --white: #FFFFFF;
+  --grey: #CDCDCD;
+  --body-background: linear-gradient(45deg, rgb(116, 155, 191), rgb(14, 33, 51));
+  --light-blue: rgb(116, 155, 191);
+  --dark-blue: rgb(14, 33, 51);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*::after, *::before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--dark-blue);
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(110, 135, 187)), color-stop(0.72, rgb(58, 101, 155)), color-stop(0.86, rgb(28, 58, 148)));
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  background: var(--body-background);
+  background-attachment: fixed;
+}
+body a {
+  text-decoration: none;
+}
+body li {
+  list-style: none;
+}
+body.lock {
+  overflow: hidden;
+}
+
+.btn {
+  background: transparent;
+  color: var(--yellow);
+  padding: 20px 25px;
+  border: 3px solid var(--yellow);
+  border-radius: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+}
+.btn:hover {
+  -webkit-box-shadow: 0 0 10px var(--yellow);
+          box-shadow: 0 0 10px var(--yellow);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 15px auto;
+  padding-inline: 20px;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+main .window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  background-color: color-mix(in srgb, var(--light-blue), var(--dark-blue));
+  padding: 20px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 3px var(--dark-blue);
+          box-shadow: 0 0 3px var(--dark-blue);
+}
+main .window h1 {
+  font-size: 28px;
+  font-weight: extrabold;
+  line-height: auto;
+  color: var(--white);
+}
+main .window form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+main .window form div label {
+  font-size: 20px;
+  font-weight: medium;
+  line-height: auto;
+  color: var(--white);
+}
+main .window form div :is(input, textarea, select) {
+  width: 100%;
+  background: transparent;
+  color: var(--yellow);
+  padding: 10px 15px;
+  border: 3px solid var(--yellow);
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  outline: none;
+  cursor: text;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.modal select option{
+    color:#000;
+}
+main .window form div input:hover {
+  -webkit-box-shadow: 0 0 10px var(--yellow);
+          box-shadow: 0 0 10px var(--yellow);
+}
+main .window form div input::-webkit-input-placeholder {
+  color: var(--yellow);
+}
+main .window form div input::-moz-placeholder {
+  color: var(--yellow);
+}
+main .window form div input:-ms-input-placeholder {
+  color: var(--yellow);
+}
+main .window form div input::-ms-input-placeholder {
+  color: var(--yellow);
+}
+main .window form div input::placeholder {
+  color: var(--yellow);
+}
+main .window form div input:focus {
+  background-color: var(--yellow);
+  color: #000;
+}
+main .window form div input:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+main .window form div input::-webkit-outer-spin-button, main .window form div input::-webkit-inner-spin-button {
+  display: none;
+}
+main .window form div input::-webkit-calendar-picker-indicator {
+  background-color: var(--yellow);
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+main .window form div :is(.btn_log, .btn_redact) {
+  margin-top: 20px;
+  font-size: 20px;
+  width: 100%;
+  padding: 10px 15px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border-radius:100px;
+}
+@media (hover: hover) {
+  main .window form div .btn_log:hover,
+  main .window form div .btn_redact:hover{
+    background-color: var(--yellow);
+    color: #000;
+  }
+}
+@media (hover: none) {
+  main .window form div .btn_log:active,
+  main .window form div .btn_redact:active{
+    background-color: var(--yellow);
+    color: #000;
+  }
+}
+main .window form div:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+main .window form div:last-child .btn_go-index {
+  margin-top: 20px;
+  font-size: 20px;
+  width: 100%;
+  padding: 10px 15px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  text-align: center;
+}
+@media (hover: hover) {
+  main .window form div:last-child .btn_go-index:hover {
+    background-color: var(--yellow);
+    color: #000;
+  }
+}
+@media (hover: none) {
+  main .window form div:last-child .btn_go-index:active {
+    background-color: var(--yellow);
+    color: #000;
+  }
+}
+main .window form div:last-child .go-login,
+main .window form div:last-child .go-registr {
+  color: var(--grey);
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  border-bottom: 1px solid transparent;
+}
+@media (hover: hover) {
+  main .window form div:last-child .go-login:hover,
+  main .window form div:last-child .go-registr:hover {
+    border-bottom: 1px solid var(--grey);
+  }
+}
+@media (hover: none) {
+  main .window form div:last-child .go-login:active,
+  main .window form div:last-child .go-registr:active {
+    border-bottom: 1px solid var(--grey);
+  }
+}
+.message-error{
+    position: absolute;
+    left: 10px;
+    top:10px;
+    width: 400px;
+    background: var(--yellow);
+    color:var(--dark-blue);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 24px;
+}

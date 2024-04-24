@@ -1,0 +1,87 @@
+extends ../layouts/base.pug
+
+block css 
+    link(rel="stylesheet", href="../../static/css/contact.css")
+
+block content
+    // {{ extends "base.html" }}
+    // {% block content %}{% endblock %}
+    // main
+    main
+        section.leave-feedback
+            article 
+                h1 Оставить отзыв
+            .container
+                form(action="", method="post")
+                    div 
+                        label Введите отзыв:
+                        textarea(name="feedback", cols="50", rows="10")
+                    div 
+                        button.btn.btn_feedback(type="submit") Отправить
+        section.feedbacks
+            .container 
+                .feedbacks__wraper
+                    article 
+                        h1 Отзывы от других пользователей
+                    .feedbacks__items 
+                        .item1.item
+                            h3 От кого: NAME 
+                            p 
+                                | Lorem, ipsum dolor 
+                                | sit amet consectetur 
+                                | adipisicing elit. 
+                                | Voluptatum recusandae 
+                                | sint illum ipsam deserunt 
+                                | quia. Recusandae ipsam 
+                                | quibusdam hic ipsa, 
+                                | nemo atque ad sunt 
+                                | totam est mollitia at cum amet.
+                        .item2.item
+                            h3 От кого: NAME 
+                            p 
+                                | Lorem, ipsum dolor 
+                                | sit amet consectetur 
+                                | adipisicing elit. 
+                                | Voluptatum recusandae 
+                                | sint illum ipsam deserunt 
+                                | quia. Recusandae ipsam 
+                                | quibusdam hic ipsa, 
+                                | nemo atque ad sunt 
+                                | totam est mollitia at cum amet.
+                        .item3.item
+                            h3 От кого: NAME 
+                            p 
+                                | Lorem, ipsum dolor 
+                                | sit amet consectetur 
+                                | adipisicing elit. 
+                                | Voluptatum recusandae 
+                                | sint illum ipsam deserunt 
+                                | quia. Recusandae ipsam 
+                                | quibusdam hic ipsa, 
+                                | nemo atque ad sunt 
+                                | totam est mollitia at cum amet.
+                        .item4.item
+                            h3 От кого: NAME 
+                            p 
+                                | Lorem, ipsum dolor 
+                                | sit amet consectetur 
+                                | adipisicing elit. 
+                                | Voluptatum recusandae 
+                                | sint illum ipsam deserunt 
+                                | quia. Recusandae ipsam 
+                                | quibusdam hic ipsa, 
+                                | nemo atque ad sunt 
+                                | totam est mollitia at cum amet.
+                        .item5.item
+                            h3 От кого: NAME 
+                            p 
+                                | Lorem, ipsum dolor 
+                                | sit amet consectetur 
+                                | adipisicing elit. 
+                                | Voluptatum recusandae 
+                                | sint illum ipsam deserunt 
+                                | quia. Recusandae ipsam 
+                                | quibusdam hic ipsa, 
+                                | nemo atque ad sunt 
+                                | totam est mollitia at cum amet.
+        

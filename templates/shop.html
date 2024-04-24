@@ -1,0 +1,111 @@
+ {% extends "base.html" %}
+ {% block content %}
+<!-- main-->
+<main>
+  <div class="container">
+    <div class="main__wraper">
+      <!-- поиск-->
+      <section class="search">
+        <form class="search-form">
+            <input type="text" name="search" placeholder="Поиск">
+        </form>
+      </section>
+      <div class="product">
+        <!-- аккустические гитары-->
+        <section class="giutar">
+          {% for item in products %}
+            {% if item.user_id == current_user.id %}
+              {% if item.content | length > 15 %}
+                <div class="item{{ loop.index }} item item_log">
+                  <img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+                  <div class="text">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.content[:15] }}...</p>
+                    <a href="/info_product/{{ item.id }}" class="btn btn_info">Больше информации</a>
+                  </div>
+                </div>
+              {% else %}
+                <div class="item{{ loop.index }} item item_log">
+                  <img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+                  <div class="text">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.content }}</p>
+                    <a href="/info_product/{{ item.id }}" class="btn btn_info">Больше информации</a>
+                  </div>
+                </div>
+              {% endif %}
+            {% else %}
+              {% if item.content | length > 15 %}
+                <div class="item{{ loop.index }} item">
+                  <img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+                  <div class="text">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.content[:15] }}...</p>
+                    <a href="/info_product/{{ item.id }}" class="btn btn_info">Больше информации</a>
+                    <a href="/add-cart/{{ item.id }}" class="btn btn_add-cart">Добавить в корзину</a>
+                  </div>
+                </div>
+              {% else %}
+                <div class="item{{ loop.index }} item">
+                  <img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+                  <div class="text">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.content }}</p>
+                    <a href="/info_product/{{ item.id }}" class="btn btn_info">Больше информации</a>
+                    <a href="/add-cart/{{ item.id }}" class="btn btn_add-cart">Добавить в корзину</a>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% else %}
+            <h1 class="no-product">Пока что товаров нет</h1>
+          {% endfor %}
+        </section>
+      </div>
+      {% if current_user.is_authenticated %}
+      {% else %}
+        <br>
+      {% endif %}
+      <!-- Добавление товара для авторизованных пользователей-->
+      <section class="add-product">
+        {% if current_user.is_authenticated %}
+          <button class="btn btn_add-product btn-open">Добавить товар</button>
+        {% else %}
+          <div></div>
+        {% endif %}
+        <div class="modal add-product__modal hidden">
+            <div class="flex">
+              <button class="btn-close">⨉</button>
+            </div>
+            <form action="/shop" method="post">
+              {{ form.hidden_tag() }}
+              <div>
+                {{ form.name.label }}
+                {{ form.name(type="text", id="name", value="") }}
+              </div>
+              <div>
+                {{ form.price.label }}
+                {{ form.price(type="number", id="price") }}
+              </div>
+              <div>
+                {{ form.description.label }}
+                {{ form.description(id="des", rows="5") }}
+              </div>
+              <div>
+                {{ form.category.label }}
+                {{ form.category(id="category") }}
+              </div>
+              <div>
+                {{ form.submit(type="submit", class="btn btn_modal") }}
+              </div>
+            </form>
+        </div>
+        <div class="overlay hidden"></div>
+      </section>
+    </div>
+  </div>
+</main>
+<button class="back-to-top hidde"></button>
+<!-- поиск-->
+<script src="{{ url_for('static', filename='js/shop.js') }}"></script>
+{% endblock %}

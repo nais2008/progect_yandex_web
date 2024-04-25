@@ -38,10 +38,3 @@ class UpdateProductForm(FlaskForm):
         ]
     )
     submit = SubmitField('Редактировать')
-
-
-
-
-
-
-a = 4984

@@ -10,7 +10,11 @@
       <section class="cart">
         {% for item in cart_items %}
           <div class="item1 item">
-            <img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+            {% if item.image1 %}
+              <img src="{{ url_for('static', filename='img/product_img/' + item.image1) }}" alt="">
+            {% else %}
+              <img src="{{ url_for('static', filename='img/no-image.jpg') }}" alt="">
+            {% endif %}
             <div class="text">
               <h3>{{ item.product.title }}</h3>
               <p>{{ item.product.content }}</p>

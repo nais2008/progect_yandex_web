@@ -251,6 +251,20 @@ header .header__blocks .btn-acc form button {
 header nav ul li:first-child a {
   border-bottom: 2px solid rgba(0, 0, 0, 0.5);
 }
+@media (max-width: 1200px){
+  header{
+    padding-inline: 30px;
+    justify-content: space-between;
+
+    & nav ul{
+      gap:15px;
+
+      & li a{
+        font-size: 16px;
+      }
+    }
+  }
+}
 
 /* footer */
 footer {

@@ -23,11 +23,11 @@
                 {% endif %}
                 <div class="text">
                   <h3>{{ item.title }}</h3>
-                  {% if item.content | length > 15 %}}
-                  <p>{{ item.content[:15] }}...</p>
-                {% else %}
-                  <p>{{ item.content }}</p>
-                {% endif %}
+                  {% if item.content | length > 15 %}
+                    <p>{{ item.content[:15] }}...</p>
+                  {% else %}
+                    <p>{{ item.content }}</p>
+                  {% endif %}
                   <a href="/info_product/{{ item.id }}" class="btn btn_info">Больше информации</a>
                 </div>
               </div>

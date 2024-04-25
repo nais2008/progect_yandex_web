@@ -26,12 +26,23 @@ def get_feedbacks():
 @blueprint.route('/api/feedbacks/<int:feedbacks_id>', methods=['GET'])
 def get_one_feedback(feedbacks_id):
     db_sess = db_session.create_session()
-    news = db_sess.query(Feedback).get(feedbacks_id)
-    if not news:
+    feedbacks = db_sess.query(Feedback).get(feedbacks_id)
+    if not feedbacks:
         return make_response(jsonify({'error': 'Not found'}), 404)
     return jsonify(
         {
-            'feedback': news.to_dict(only=(
+            'feedback': feedbacks.to_dict(only=(
                 'text', 'date', 'user_id', 'user.full_name'))
         }
     )
+
+
+@blueprint.route('/api/feedbacks/<int:feedbacks_id>', methods=['DELETE'])
+def delete_one_feedback(feedbacks_id):
+    db_sess = db_session.create_session()
+    feedbacks= db_sess.query(Feedback).get(feedbacks_id)
+    if not feedbacks:
+        return make_response(jsonify({'error': 'Not found'}), 404)
+    db_sess.delete(feedbacks)
+    db_sess.commit()
+    return jsonify({'success': 'OK'})

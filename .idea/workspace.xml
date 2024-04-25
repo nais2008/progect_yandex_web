@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="рабочая версия">
+    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="начало мобильной адаптации">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/90100f02d8b9_попытка_добавления_изображений.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/de2c33a19ed8_все_также_попытки.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/db_session.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/db_session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/feedbacks_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/feedbacks_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/gs.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/gs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms/product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/account.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/info_product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/info_product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/shop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/shop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/info_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/info_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -299,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714057408512</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="начало мобильной адаптации">
+      <option name="closed" value="true" />
+      <created>1714070806455</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1714070806455</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -323,6 +323,7 @@
     <MESSAGE value="minifix" />
     <MESSAGE value="попытка добавить изображения" />
     <MESSAGE value="рабочая версия" />
-    <option name="LAST_COMMIT_MESSAGE" value="рабочая версия" />
+    <MESSAGE value="начало мобильной адаптации" />
+    <option name="LAST_COMMIT_MESSAGE" value="начало мобильной адаптации" />
   </component>
 </project>

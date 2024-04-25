@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed
 from wtforms import SubmitField, StringField, TextAreaField, FileField, SelectField, IntegerField
 from wtforms.validators import DataRequired
 import sqlite3
@@ -22,8 +23,10 @@ class ProductForm(FlaskForm):
             (f"{item[0]}", f"{item[1]}") for item in items
         ]
     )
-    image1 = FileField('Изображение 1')
-    image2 = FileField('Изображение 2')
+    image1 = FileField('Изображение 1',
+                       validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
+    image2 = FileField('Изображение 2',
+                       validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
     submit = SubmitField('Создать')
 
 

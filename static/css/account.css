@@ -523,6 +523,8 @@ main .your-product .container .item {
 }
 main .your-product .container .item img {
   width: 100%;
+  height: 205px;
+  object-fit: cover;
 }
 main .your-product .container .item .text {
   display: -webkit-box;

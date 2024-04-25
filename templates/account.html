@@ -41,29 +41,29 @@
       {% if products %}
         <swiper-container class="mySwiper" pagination="true" pagination-dynamic-bullets="true"
                           slides-per-view="3" space-between="30" navigation="true">
-            {% for item in products %}
-              <swiper-slide>
-                {% if item.content | length > 15 %}
-                  <div class="item{{loop.index}} item"><img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
-                    <div class="text">
-                      <h3>{{item.title}}</h3>
-                      <p>{{item.content[:15]}}...</p>
-                      <a href="/redact_product/{{item.id}}" class="btn btn_item">Редактировать</a>
-                      <a href="/del_product/{{item.id}}" class="btn btn_item">Удалить</a>
-                    </div>
+          {% for item in products %}
+            <swiper-slide>
+                <div class="item{{loop.index}} item">
+                  {% if item.image1 %}
+                    <img src="{{ url_for('static', filename='img/product_img/' + item.image1) }}" alt="">
+                  {% else %}
+                    <img src="{{ url_for('static', filename='img/no-image.jpg') }}" alt="">
+                  {% endif %}
+                  <div class="text">
+                    <h3>{{item.title}}</h3>
+                    <p>
+                      {% if item.content | length > 15 %}
+                        {{item.content[:15]}}...
+                      {% else %}
+                        {{item.content}}
+                      {% endif %}
+                    </p>
+                    <a href="/redact_product/{{item.id}}" class="btn btn_item">Редактировать</a>
+                    <a href="/del_product/{{item.id}}" class="btn btn_item">Удалить</a>
                   </div>
-                {% else %}
-                  <div class="item{{loop.index}} item"><img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
-                    <div class="text">
-                      <h3>{{item.title}}</h3>
-                      <p>{{item.content}}</p>
-                      <a href="/redact_product/{{item.id}}" class="btn btn_item">Редактировать</a>
-                      <a href="/del_product/{{item.id}}" class="btn btn_item">Удалить</a>
-                    </div>
-                  </div>
-                {% endif %}
-              </swiper-slide>
-            {% endfor %}
+                </div>
+            </swiper-slide>
+          {% endfor %}
         </swiper-container>
       {% else %}
         <h1 class="no-product">У вас нет товаров</h1>

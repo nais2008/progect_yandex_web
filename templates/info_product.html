@@ -10,10 +10,18 @@
                     <swiper-container class="" pagination="true" pagination-dynamic-bullets="true" navigation="true"
                                       pagination-clickable="true" slides-per-view="1"  space-between="30">
                         <swiper-slide>
-                            <img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+                            {% if product.image1 %}
+                              <img src="{{ url_for('static', filename='img/product_img/' + product.image1) }}" alt="">
+                            {% else %}
+                              <img src="{{ url_for('static', filename='img/no-image.jpg') }}" alt="">
+                            {% endif %}
                         </swiper-slide>
                         <swiper-slide>
-                            <img src="https://www.slapshop.ru/upload/iblock/806/k014nz3bcntldhvrgej0z1uvdbavhut6.jpg" alt="">
+                            {% if product.image2 %}
+                              <img src="{{ url_for('static', filename='img/product_img/' + product.image2) }}" alt="">
+                            {% else %}
+                              <img src="{{ url_for('static', filename='img/no-image.jpg') }}" alt="">
+                            {% endif %}
                         </swiper-slide>
                     </swiper-container>
                     <h1>{{ product.title }}</h1>
@@ -25,9 +33,7 @@
                     {% else %}
                         <a href="/shop" class="btn btn_go-shop">На страницу с товарами</a>
                         {% if current_user.is_authenticated %}
-                            <a href="/info_product/{{ item.id }}" class="btn btn_info">Больше информации</a>
-                        {% else %}
-                            <div></div>
+                            <a href="/add-cart/{{ product.id }}" class="btn btn_info">Добавить в корзину</a>
                         {% endif %}
                     {% endif %}
                 </div>

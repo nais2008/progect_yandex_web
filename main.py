@@ -15,8 +15,7 @@ import data.users_resources as users_resources
 import os
 
 """ Задачи:
-1. Реализовать загрузку файлов
-2. Реализовать мобильную адаптацию
+1. Реализовать мобильную адаптацию
 """
 
 """ Команды alembic
@@ -26,7 +25,7 @@ alembic upgrade head - upgrade выполняет код для изменени
 """
 
 
-UPLOAD_FOLDER = '/static/img/product_img'
+UPLOAD_FOLDER = "static/img/product_img"
 ALLOWED_EXTENSIONS = {'svg', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
@@ -36,9 +35,19 @@ app.config['PERMANENT_SESSION_LIFETIME'] = dt.timedelta(
     days=15
 )
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024     # 16 МБ
+# app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024     # 16 МБ
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+
+# Функция для проверки и сохранения изображения
+def save_image(image):
+    if image:
+        filename = secure_filename(image.filename)
+        image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        image.save(image_path)
+        return filename
+    return None
 
 
 # загрузка пользователей
@@ -103,20 +112,12 @@ def shop():
         product.content = form.description.data
         product.category_id = form.category.data
 
-        # image1 = form.image1.data
-        # image2 = form.image2.data
-        # if image1:
-        #     filename1 = secure_filename(image1.filename)
-        #     image_path1 = os.path.join(app.config['UPLOAD_FOLDER'], filename1)
-        #     image1.save(image_path1)
-        #     with open(image_path1, 'rb') as f1:
-        #         product.image1 = f1.read()
-        # if image2:
-        #     filename2 = secure_filename(image2.filename)
-        #     image_path2 = os.path.join(app.config['UPLOAD_FOLDER'], filename2)
-        #     image2.save(image_path2)
-        #     with open(image_path2, 'rb') as f2:
-        #         product.image2 = f2.read()
+        image_file1 = save_image(form.image1.data)
+        if image_file1:
+            product.image1 = image_file1
+        image_file2 = save_image(form.image2.data)
+        if image_file2:
+            product.image2 = image_file2
 
         current_user.product.append(product)
 
@@ -133,7 +134,8 @@ def shop():
                     {
                         'title': product.title,
                         'content': product.content,
-                        'id': product.id
+                        'id': product.id,
+                        'img': product.image1
                     }
                     for product in products
                 ]
@@ -317,9 +319,9 @@ def info_product(id):
             s += i[0]
     except AttributeError:
         s = 0
-    product = db_sess.query(Product).filter(Product.id == id).first()
     """ Если товар не найден, то возвращаем ошибку 404, 
     иначе рендер страницы информации о товаре"""
+    product = db_sess.query(Product).filter(Product.id == id).first()
     if product:
         return render_template(
             'info_product.html',

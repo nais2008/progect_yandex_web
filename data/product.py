@@ -23,3 +23,5 @@ class Product(SqlAlchemyBase, UserMixin, SerializerMixin):
                                     sqlalchemy.ForeignKey("product_category.id"))
     category = orm.relationship("ProductCategory")
     cart = orm.relationship("Cart", back_populates='product')
+    image1 = sqlalchemy.Column(sqlalchemy.LargeBinary)
+    image2 = sqlalchemy.Column(sqlalchemy.LargeBinary)

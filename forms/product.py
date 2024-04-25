@@ -22,6 +22,8 @@ class ProductForm(FlaskForm):
             (f"{item[0]}", f"{item[1]}") for item in items
         ]
     )
+    image1 = FileField('Изображение 1')
+    image2 = FileField('Изображение 2')
     submit = SubmitField('Создать')
 
 

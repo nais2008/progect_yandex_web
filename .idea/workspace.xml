@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="попытка добавить изображения" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="images" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nais2008&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nais2008/progect_yandex_web&quot;,
+    &quot;accountId&quot;: &quot;e12f5d18-e199-4a4a-8809-37c34f15d829&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2fPSdJCfkU0p1wnkw5sp7knwoEo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="progect_yandex_web" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="" />
+      <created>1713701306476</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713701306476</updated>
+    </task>
+    <task id="LOCAL-00001" summary="megic">
+      <option name="closed" value="true" />
+      <created>1713701392333</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713701392333</updated>
+    </task>
+    <task id="LOCAL-00002" summary="megic">
+      <option name="closed" value="true" />
+      <created>1713701855663</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713701855663</updated>
+    </task>
+    <task id="LOCAL-00003" summary="mini fix">
+      <option name="closed" value="true" />
+      <created>1713801752414</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713801752414</updated>
+    </task>
+    <task id="LOCAL-00004" summary="mini fix">
+      <option name="closed" value="true" />
+      <created>1713805383278</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713805383278</updated>
+    </task>
+    <task id="LOCAL-00005" summary="динамический поиск и комментарии">
+      <option name="closed" value="true" />
+      <created>1713814272867</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713814272867</updated>
+    </task>
+    <task id="LOCAL-00006" summary="рабочая версия">
+      <option name="closed" value="true" />
+      <created>1713881772580</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713881772580</updated>
+    </task>
+    <task id="LOCAL-00007" summary="рабочая версия">
+      <option name="closed" value="true" />
+      <created>1713884501610</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713884501610</updated>
+    </task>
+    <task id="LOCAL-00008" summary="рабочая версия">
+      <option name="closed" value="true" />
+      <created>1713885383413</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713885383413</updated>
+    </task>
+    <task id="LOCAL-00009" summary="api для отзывов и миграции">
+      <option name="closed" value="true" />
+      <created>1713895211130</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713895211130</updated>
+    </task>
+    <task id="LOCAL-00010" summary="api для отзывов и миграции">
+      <option name="closed" value="true" />
+      <created>1713895335057</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713895335057</updated>
+    </task>
+    <task id="LOCAL-00011" summary="api для отзывов и миграции">
+      <option name="closed" value="true" />
+      <created>1713895383177</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713895383177</updated>
+    </task>
+    <task id="LOCAL-00012" summary="api для отзывов и миграции">
+      <option name="closed" value="true" />
+      <created>1713896555703</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713896555703</updated>
+    </task>
+    <task id="LOCAL-00013" summary="решение проблемы с 401">
+      <option name="closed" value="true" />
+      <created>1713897023819</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713897023819</updated>
+    </task>
+    <task id="LOCAL-00014" summary="решение проблемы с 401">
+      <option name="closed" value="true" />
+      <created>1713977177838</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713977177839</updated>
+    </task>
+    <task id="LOCAL-00015" summary="решение проблемы с 401">
+      <option name="closed" value="true" />
+      <created>1713977743443</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713977743443</updated>
+    </task>
+    <task id="LOCAL-00016" summary="решение проблемы с 401">
+      <option name="closed" value="true" />
+      <created>1713977939428</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713977939428</updated>
+    </task>
+    <task id="LOCAL-00017" summary="restful api для user">
+      <option name="closed" value="true" />
+      <created>1713980279572</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713980279572</updated>
+    </task>
+    <task id="LOCAL-00018" summary="minifix">
+      <option name="closed" value="true" />
+      <created>1713981570605</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713981570605</updated>
+    </task>
+    <task id="LOCAL-00019" summary="minifix">
+      <option name="closed" value="true" />
+      <created>1713981695424</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713981695424</updated>
+    </task>
+    <task id="LOCAL-00020" summary="попытка добавить изображения">
+      <option name="closed" value="true" />
+      <created>1714049068483</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1714049068483</updated>
+    </task>
+    <task id="LOCAL-00021" summary="попытка добавить изображения">
+      <option name="closed" value="true" />
+      <created>1714049156106</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1714049156106</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="megic" />
+    <MESSAGE value="mini fix" />
+    <MESSAGE value="динамический поиск и комментарии" />
+    <MESSAGE value="рабочая версия" />
+    <MESSAGE value="api для отзывов и миграции" />
+    <MESSAGE value="решение проблемы с 401" />
+    <MESSAGE value="restful api для user" />
+    <MESSAGE value="minifix" />
+    <MESSAGE value="попытка добавить изображения" />
+    <option name="LAST_COMMIT_MESSAGE" value="попытка добавить изображения" />
+  </component>
+</project>

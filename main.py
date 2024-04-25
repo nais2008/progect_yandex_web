@@ -9,8 +9,10 @@ from data.product import Product
 from data.feedbacks import Feedback
 from data.cart import Cart
 from flask_restful import Api
+from werkzeug.utils import secure_filename
 import datetime as dt
 import data.users_resources as users_resources
+import os
 
 """ Задачи:
 1. Реализовать загрузку файлов
@@ -101,12 +103,27 @@ def shop():
         product.content = form.description.data
         product.category_id = form.category.data
 
+        image1 = form.image1.data
+        image2 = form.image2.data
+        if image1:
+            filename1 = secure_filename(image1.filename)
+            image_path1 = os.path.join(app.config['UPLOAD_FOLDER'], filename1)
+            image1.save(image_path1)
+            with open(image_path1, 'rb') as f1:
+                product.image1 = f1.read()
+        if image2:
+            filename2 = secure_filename(image2.filename)
+            image_path2 = os.path.join(app.config['UPLOAD_FOLDER'], filename2)
+            image2.save(image_path2)
+            with open(image_path2, 'rb') as f2:
+                product.image2 = f2.read()
+
         current_user.product.append(product)
 
         db_sess.merge(current_user)
         db_sess.commit()
         return redirect('/shop')
-    # рендер страницы с товарами
+    # поиск
     if request.method == 'POST':
         search_term = request.form.get('search_term')
         products = db_sess.query(Product).filter(Product.title.ilike(f'%{search_term}%')).all()
@@ -122,6 +139,7 @@ def shop():
                 ]
             }
         )
+    # рендер страницы с товарами
     return render_template(
         'shop.html',
         title='Guitar House / Товар',

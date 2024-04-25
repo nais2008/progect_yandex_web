@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="попытка добавить изображения" />
+    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="попытка добавить изображения">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/gs.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/gs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms/product.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms/product.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

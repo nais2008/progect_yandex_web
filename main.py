@@ -14,10 +14,6 @@ import datetime as dt
 import data.users_resources as users_resources
 import os
 
-""" Задачи:
-1. Реализовать мобильную адаптацию
-"""
-
 """ Команды alembic
 alembic revision --autogenerate -m "Коментарии"
 alembic upgrade head - upgrade выполняет код для изменения состояния базы

@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="мобильная адаптация">
+    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="header мобильная адаптация">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/gs.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/gs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714072361361</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="header мобильная адаптация">
+      <option name="closed" value="true" />
+      <created>1714138712149</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1714138712149</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -332,6 +336,7 @@
     <MESSAGE value="рабочая версия" />
     <MESSAGE value="начало мобильной адаптации" />
     <MESSAGE value="мобильная адаптация" />
-    <option name="LAST_COMMIT_MESSAGE" value="мобильная адаптация" />
+    <MESSAGE value="header мобильная адаптация" />
+    <option name="LAST_COMMIT_MESSAGE" value="header мобильная адаптация" />
   </component>
 </project>

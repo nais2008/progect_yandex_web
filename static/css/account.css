@@ -503,6 +503,30 @@ footer .container .footer__wraper .footer__navigation .footer__tg a img{
   }
 }
 
+@media screen and (width <= 720px){
+  footer{ 
+    height: auto;
+    padding-block: 40px;
+    text-align: center;
+  }
+  footer .container .footer__wraper{
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+
+    & .footer__navigation{
+      flex-direction: column;
+      align-items: center;
+      gap:60px;
+
+      & .footer__tg{
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+  }
+}
+
 main .account {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -517,6 +541,14 @@ main .account {
           align-items: center;
   background-color: color-mix(in srgb, var(--light-blue), var(--dark-blue));
   border-radius: 15px;
+}
+@media screen and (width <= 945px){
+  main .account{
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    text-align: center;
+  }
 }
 main .account .left {
   display: -webkit-box;

@@ -498,6 +498,30 @@ footer .container .footer__wraper .footer__navigation .footer__tg a img{
   }
 }
 
+@media screen and (width <= 720px){
+  footer{ 
+    height: auto;
+    padding-block: 40px;
+    text-align: center;
+  }
+  footer .container .footer__wraper{
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+
+    & .footer__navigation{
+      flex-direction: column;
+      align-items: center;
+      gap:60px;
+
+      & .footer__tg{
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+  }
+}
+
 /* main */
 main .container .main__wraper {
   display: -webkit-box;
@@ -603,4 +627,72 @@ main .container .main__wraper .images .layer4 .circle {
   margin-left: -400px;
   -webkit-transform: translate(-100px, -100px);
           transform: translate(-100px, -100px);
+}
+@media screen and (max-width: 1185px){
+  main .container .main__wraper{
+    & .text{
+      gap: 30px;
+
+      & h1{
+        font-size: 32px;
+      }
+      & p{
+        font-size: 20px;
+      }
+      & button{
+        font-size: 20px;
+        padding: 25px;
+      }
+    }
+  }
+}
+@media screen and (width <= 1030px){
+  main .container .main__wraper{
+    & .images{
+      & .layer1{
+        width: 0px;
+
+        & img{
+          width: 400px;
+          transform: translateX(-10px);
+        }
+      } 
+      & .layer2{
+
+        & img{
+          width: 200px;
+          margin-left: 140px;
+          margin-bottom: 40px;
+        }
+      } 
+      & .layer3{
+        & .glow1{
+          transform: translate(-60px, 220px);
+        }
+        & .glow2{
+          transform: translate(150px, -40px);
+        }
+      }
+      & .layer4{
+        & .circle{
+          border: 30px solid var(--yellow);
+          width: 300px;
+          height: 300px;
+          transform: translate(50px, -100px);
+        }
+      }
+    }
+  }
+}
+@media screen and (width <= 805px){
+  main .container .main__wraper{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    & .text{
+      text-align: center;
+      width: 100%;
+    }
+  }
 }

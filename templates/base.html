@@ -41,39 +41,47 @@
           <h2>Guitar House</h2>
         </a>
         <!-- Навигация-->
-        <nav class="header__navigation"> 
-          <ul> 
-            <li><a href="/"> Главная</a></li>
-            <li><a href="/shop"> Товар</a></li>
-            <li><a href="/contact"> Оставить отзыв</a></li>
-          </ul>
-        </nav>
-        <!-- Тут корзина и кнопки-->
-        <section class="header__blocks"> 
-          <!-- блок корзины--><a class="header__cart cart" href="/cart"> 
-            <div class="cart__icon"> <img src="{{ url_for('static', filename='img/cart.svg') }}" alt="cart-icon"></div>
-            <h3 class="cart__sum">{{ sum_price }}₽</h3></a>
-          {% if current_user.is_authenticated %}
-            <!-- кнопка входа в личный кабинет-->
-            <div class="header__btn-acc btn-acc">
-              <form action="/account">
-                <button class="btn btn_acc">
-                  <!-- Здесь будет либо иконка аккаунта, либо никнейм-->
-                  {{ current_user.full_name }}
-                </button>
-              </form>
-            </div>
-          {% else %}
-          <!-- кнопки входа и регистрации -->
-            <div class="header__btn-auto-reg btn-auto-reg">
-              <form action="/login">
-                <button class="btn btn_auto">Авторизоваться</button>
-              </form>
-              <form action="/registr">
-                <button class="btn btn_reg">Зарегистрироваться </button>
-              </form>
-            </div>
-          {% endif %}
+        <div class="burger-navigation">
+          <nav class="header__navigation"> 
+            <ul> 
+              <li><a href="/"> Главная</a></li>
+              <li><a href="/shop"> Товар</a></li>
+              <li><a href="/contact"> Оставить отзыв</a></li>
+            </ul>
+          </nav>
+          <!-- Тут корзина и кнопки-->
+          <section class="header__blocks"> 
+            <!-- блок корзины-->
+            <a class="header__cart cart" href="/cart"> 
+              <div class="cart__icon"> 
+                <img src="{{ url_for('static', filename='img/cart.svg') }}" alt="cart-icon">
+              </div>
+              <h3 class="cart__sum">{{ sum_price }}₽</h3>
+            </a>
+            {% if current_user.is_authenticated %}
+              <!-- кнопка входа в личный кабинет-->
+              <div class="header__btn-acc btn-acc">
+                <form action="/account">
+                  <button class="btn btn_acc">
+                    {{ current_user.full_name }}
+                  </button>
+                </form>
+              </div>
+            {% else %}
+            <!-- кнопки входа и регистрации -->
+              <div class="header__btn-auto-reg btn-auto-reg">
+                <form action="/login">
+                  <button class="btn btn_auto">Авторизоваться</button>
+                </form>
+                <form action="/registr">
+                  <button class="btn btn_reg">Зарегистрироваться </button>
+                </form>
+              </div>
+            {% endif %}
+          </section>
+        </div>
+        <section class="header__burger-button hamburger">
+          <div class="hamburger--line"></div>
         </section>
       </header>
 
@@ -118,5 +126,6 @@
       Включите в настройках JavaScript (JS), иначе сайт не будет нормально работать.
     </noscript>
     <script src="{{ js }}"> </script>
+    <script src="{{ url_for("static", filename="js/burger-menu.js") }}"></script>
   </body>
 </html>

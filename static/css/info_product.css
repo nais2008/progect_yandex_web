@@ -52,6 +52,7 @@ body {
   font-size: 16px;
   background: var(--body-background);
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 body a {
   text-decoration: none;
@@ -113,6 +114,14 @@ header .header__logo h2 {
   font-weight: medium;
   line-height: 0;
   color: var(--white);
+}
+header .burger-navigation{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+header .hamburger{
+  display: none;
 }
 header .header__navigation ul {
   display: -webkit-box;
@@ -322,6 +331,142 @@ swiper-slide img {
   .btn:hover{
     background-color: var(--yellow);
     color: var(--dark-blue);
+  }
+}
+@media (max-width: 1200px){
+  header{
+    padding-inline: 30px;
+    justify-content: space-between;
+
+    & .header__logo{
+      gap: 15px;
+
+      & img{
+        width: 40px;
+      }
+      & h2{
+        font-size: 24px;
+      }
+    }
+    & .header__navigation ul{
+      gap:20px;
+
+      & li a{
+        font-size: 16px;
+      }
+    }
+    & .header__blocks{
+      gap: 20px;
+
+      .cart{
+        gap:10px;
+
+        & .cart__icon{
+          width: 40px;
+          height: 40px;
+  
+          & img{
+            width: 33px;
+            height: 33px;
+          }
+        }
+        & h3{
+          font-size: 20px;
+        }
+      }
+      & .btn-acc form button{
+        font-size: 14px;
+        padding: 7px 12px;
+        border: 2px solid var(--yellow)
+      }
+      & .btn-auto-reg form button{
+        font-size: 10px;
+        padding: 7px 13px;
+        border: 2px solid var(--yellow)
+      }
+      @media (hover: hover) {
+        & :is(.btn-acc, .btn-auto-reg) form button:hover{
+          border: 2px solid var(--yellow);
+        } 
+      }
+      @media (hover:none) {
+        & :is(.btn-acc, .btn-auto-reg) form button:active{
+          border: 2px solid var(--yellow);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 890px){
+  header .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 6;
+
+  }
+  .hamburger--line {
+    width: 55px;
+    height: 5px;
+    border-radius: 5px;
+    display: block;
+    background-color: var(--yellow);
+    transition-duration: 250ms;
+    position: absolute;
+  }
+  .hamburger--line::before,
+  .hamburger--line::after{
+    content: '';
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    display: block;
+    background-color: var(--yellow);
+    position: absolute;
+    transition: 200ms;
+  }
+  .hamburger--line::before {
+    top: -15px;
+  }
+  .hamburger--line::after {
+    top: 15px;
+  }
+  .hamburger--line__x {
+    transform: rotate(-45deg);
+  }
+  .hamburger--line__x::before,
+  .hamburger--line__x::after{
+    transform: rotate(90deg);
+    top: 0px;
+  }
+  header .burger-navigation{
+    flex-direction: column;
+    position: absolute;
+    right: -200px;
+    top:0;
+    height: 100dvh;
+    width: 200px;
+    background-color: var(--dark-blue);
+    border-left: 1px solid var(--yellow);
+    justify-content: center;
+    z-index: 5;
+    transition: all .2s;
+
+    &.active{
+      right: 0;
+    }
+  }
+  header .header__navigation ul{
+    flex-direction: column;
+    align-items: center;
+  }
+  header .header__blocks{
+    flex-direction: column;
+    align-items: center;
   }
 }
 

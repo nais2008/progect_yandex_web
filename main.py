@@ -26,7 +26,6 @@ alembic upgrade head - upgrade выполняет код для изменени
 
 
 UPLOAD_FOLDER = "static/img/product_img"
-ALLOWED_EXTENSIONS = {'svg', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
 api = Api(app)
@@ -35,16 +34,25 @@ app.config['PERMANENT_SESSION_LIFETIME'] = dt.timedelta(
     days=15
 )
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-# app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024     # 16 МБ
 login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-# Функция для проверки и сохранения изображения
-def save_image(image):
+# Функция для проверки и сохранения изображения продукта
+def save_image_product(image):
     if image:
         filename = secure_filename(image.filename)
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        image.save(image_path)
+        return filename
+    return None
+
+
+# Функция для проверки и сохранения изображения юзера
+def save_image_user(image):
+    if image:
+        filename = secure_filename(image.filename)
+        image_path = os.path.join("static/img/user_img/", filename)
         image.save(image_path)
         return filename
     return None
@@ -71,20 +79,20 @@ def logout():
 def index():
     db_sess = db_session.create_session()
     # получаем и суммируем товаров в корзине
-    s = 0
+    summary = 0
     try:
         sum_price = db_sess.query(Cart.price).filter(Cart.user_id == current_user.id)
         for i in sum_price:
-            s += i[0]
+            summary += i[0]
     except AttributeError:
-        s = 0
+        summary = 0
     # рендер главной страницы
     return render_template(
         'index.html',
         title='Guitar House',
         css=url_for('static', filename='css/style.css'),
         js=url_for('static', filename='js/main.js'),
-        sum_price=s
+        sum_price=summary
     )
 
 
@@ -95,13 +103,13 @@ def shop():
     form = ProductForm()
     db_sess = db_session.create_session()
     # получаем и суммируем товаров в корзине
-    s = 0
+    summary = 0
     try:
         sum_price = db_sess.query(Cart.price).filter(Cart.user_id == current_user.id)
         for i in sum_price:
-            s += i[0]
+            summary += i[0]
     except AttributeError:
-        s = 0
+        summary = 0
     # действия при добавлении товара
     products = db_sess.query(Product).all()
     if form.validate_on_submit():
@@ -112,10 +120,10 @@ def shop():
         product.content = form.description.data
         product.category_id = form.category.data
 
-        image_file1 = save_image(form.image1.data)
+        image_file1 = save_image_product(form.image1.data)
         if image_file1:
             product.image1 = image_file1
-        image_file2 = save_image(form.image2.data)
+        image_file2 = save_image_product(form.image2.data)
         if image_file2:
             product.image2 = image_file2
 
@@ -149,7 +157,7 @@ def shop():
         js=url_for('static', filename='js/main.js'),
         form=form,
         products=products,
-        sum_price=s
+        sum_price=summary
     )
 
 
@@ -160,13 +168,13 @@ def contact():
     form = FeedbackForm()
     db_sess = db_session.create_session()
     # получаем и суммируем товаров в корзине
-    s = 0
+    summary = 0
     try:
         sum_price = db_sess.query(Cart.price).filter(Cart.user_id == current_user.id)
         for i in sum_price:
-            s += i[0]
+            summary += i[0]
     except AttributeError:
-        s = 0
+        summary = 0
     #  действия при добавлении отзыва
     feedback = db_sess.query(Feedback).all()
     if form.validate_on_submit():
@@ -185,7 +193,7 @@ def contact():
         js=url_for('static', filename='js/main.js'),
         form=form,
         feedback=feedback,
-        sum_price=s
+        sum_price=summary
     )
 
 
@@ -195,13 +203,13 @@ def contact():
 def cart():
     db_sess = db_session.create_session()
     # получаем и суммируем товаров в корзине
-    s = 0
+    summary = 0
     try:
         sum_price = db_sess.query(Cart.price).filter(Cart.user_id == current_user.id)
         for i in sum_price:
-            s += i[0]
+            summary += i[0]
     except AttributeError:
-        s = 0
+        summary = 0
     cart_items = db_sess.query(Cart).filter(Cart.user_id == current_user.id)
     # рендер страницы с корзиной
     return render_template(
@@ -209,7 +217,7 @@ def cart():
         title='Guitar House / Корзина',
         css=url_for('static', filename='css/cart.css'),
         js=url_for('static', filename='js/main.js'),
-        sum_price=s,
+        sum_price=summary,
         cart_items=cart_items
     )
 
@@ -258,13 +266,13 @@ def account():
     form = UpdateForm()
     db_sess = db_session.create_session()
     # получаем и суммируем товаров в корзине
-    s = 0
+    summary = 0
     try:
         sum_price = db_sess.query(Cart.price).filter(Cart.user_id == current_user.id)
         for i in sum_price:
-            s += i[0]
+            summary += i[0]
     except AttributeError:
-        s = 0
+        summary = 0
     # действия при редактировании данных пользователя
     products = db_sess.query(Product).filter(Product.user_id == current_user.id).all()
     if form.validate_on_submit():
@@ -289,7 +297,7 @@ def account():
         form=form,
         info=current_user,
         products=products,
-        sum_price=s
+        sum_price=summary
     )
 
 
@@ -312,13 +320,13 @@ def del_account(id):
 def info_product(id):
     db_sess = db_session.create_session()
     # получаем и суммируем товаров в корзине
-    s = 0
+    summary = 0
     try:
         sum_price = db_sess.query(Cart.price).filter(Cart.user_id == current_user.id)
         for i in sum_price:
-            s += i[0]
+            summary += i[0]
     except AttributeError:
-        s = 0
+        summary = 0
     """ Если товар не найден, то возвращаем ошибку 404, 
     иначе рендер страницы информации о товаре"""
     product = db_sess.query(Product).filter(Product.id == id).first()
@@ -329,7 +337,7 @@ def info_product(id):
             css=url_for('static', filename='css/info_product.css'),
             js=url_for('static', filename='js/app.js'),
             product=product,
-            sum_price=s
+            sum_price=summary
         )
     else:
         abort(404)

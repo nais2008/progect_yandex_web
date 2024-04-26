@@ -298,7 +298,22 @@ swiper-slide img {
     will-change: transform;
     transition: transform var(--transition) ;
 }
-
+@media screen and (max-width: 1500px){
+  .layers__container{
+    transform: rotateX(0deg) rotateY(0deg) !important;
+    width: 90% !important;
+    margin: 30px auto;
+  }
+}
+@media screen and (max-width: 900px){
+  .layers__container{
+    width: 100% !important;
+    background-color: transparent !important;
+  }
+  swiper-slide img{
+    height: 100%;
+  }
+}
 .layer-1{
   transform: translateZ(0) scale(1.06);
   

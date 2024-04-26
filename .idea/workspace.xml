@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="header мобильная адаптация">
+    <list default="true" id="f5584f21-492b-456d-80db-a71e86cfe528" name="Changes" comment="адаптация страницы с инфорамцией о продукте">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714138712149</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="адаптация страницы с инфорамцией о продукте">
+      <option name="closed" value="true" />
+      <created>1714142370100</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1714142370100</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -337,6 +344,7 @@
     <MESSAGE value="начало мобильной адаптации" />
     <MESSAGE value="мобильная адаптация" />
     <MESSAGE value="header мобильная адаптация" />
-    <option name="LAST_COMMIT_MESSAGE" value="header мобильная адаптация" />
+    <MESSAGE value="адаптация страницы с инфорамцией о продукте" />
+    <option name="LAST_COMMIT_MESSAGE" value="адаптация страницы с инфорамцией о продукте" />
   </component>
 </project>

@@ -48,14 +48,15 @@ def save_image_product(image):
     return None
 
 
+'''Потом может сделаю'''
 # Функция для проверки и сохранения изображения юзера
-def save_image_user(image):
-    if image:
-        filename = secure_filename(image.filename)
-        image_path = os.path.join("static/img/user_img/", filename)
-        image.save(image_path)
-        return filename
-    return None
+# def save_image_user(image):
+#     if image:
+#         filename = secure_filename(image.filename)
+#         image_path = os.path.join("static/img/user_img/", filename)
+#         image.save(image_path)
+#         return filename
+#     return None
 
 
 # загрузка пользователей
